@@ -1,0 +1,49 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.16 Chrome/132.0.6834.196 Electron/34.2.0 Safari/537.36" version="26.0.16">
+  <diagram name="Page-1" id="FsnHAQyee-VtsN2JApQM">
+    <mxGraphModel dx="880" dy="572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="szD8H8HavVOp8JEjngbj-1" value="MAP: One mapper per document in parallel.&lt;div&gt;for each line: row = row + 1&lt;/div&gt;&lt;div&gt;find every &#39;Africa&#39;&lt;/div&gt;&lt;div&gt;emit (docName, &#39;row:col&#39;)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="221.25" y="130" width="307.5" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-3" value="SHUFFLE AND SORT&lt;div&gt;Partition by key, sort keys, group values&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="330" width="310" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-4" value="Reduce:&lt;div&gt;Sort positions numerically(row, col)&lt;/div&gt;&lt;div&gt;emit docName count (r,c) (r,c)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="221.25" y="520" width="308.75" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-5" value="HDFS input: doc1.text - doc7.txt" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="30" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="szD8H8HavVOp8JEjngbj-5" target="szD8H8HavVOp8JEjngbj-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="320" as="sourcePoint" />
+            <mxPoint x="450" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-8" value="Input format would be one split per file, so line numbers stay correct" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="80" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="szD8H8HavVOp8JEjngbj-1" target="szD8H8HavVOp8JEjngbj-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="430" as="sourcePoint" />
+            <mxPoint x="440" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="szD8H8HavVOp8JEjngbj-3" target="szD8H8HavVOp8JEjngbj-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="430" as="sourcePoint" />
+            <mxPoint x="440" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-11" value="e.g. (doc3.txt, &#39;3:7&#39;) (doc3.txt, &#39;3:7&#39;) (doc3.txt, &#39;3:7&#39;)&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="394" y="270" width="225" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="szD8H8HavVOp8JEjngbj-12" value="doc1.txt -&amp;gt; [&#39;1:64&#39;, &#39;3:11&#39;, &#39;3:95&#39;]" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="390" y="470" width="170" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
